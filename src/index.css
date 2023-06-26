@@ -35,59 +35,127 @@ html {
 } */
 
 .cards {
-    display:flex;
-    flex-wrap:wrap;
-    gap:1.2rem;
-    justify-content:center;
-    width:100%;
-    max-width:75rem;
-    font-family:sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 75rem;
+  font-family: sans-serif;
 }
 
 .cards--card {
-    flex-grow:0;
-    flex-shrink:0;
-    flex-basis:20rem;
-    padding-left: 1%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 20rem;
+  padding-left: 1%;
 }
 
 .cards--image {
-    max-height:20rem;
-    width:100%;
-    object-fit:cover;
-    border-radius:0.5rem;
-    filter: drop-shadow(0 0 0.25rem black);
+  max-height: 20rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  filter: drop-shadow(0 0 0.25rem black);
 }
 
 .cards--text-content {
-    padding:0 1rem;
+  padding: 0 1rem;
 }
 
 .cards--text-content p {
-    margin-top: 3%;
+  margin-top: 3%;
 }
 
 .cards--name {
-    font-size:1.2rem;
-    font-weight: 550;
+  font-size: 1.2rem;
+  font-weight: 550;
 }
 
 .cards--meal {
-    display:inline-block;
-    background:#c9c2c2;
-    border-radius:0.75rem;
-    padding:0.5rem 0.75rem;
-    margin-right:0.25rem;
-    font-style: italic;
+  display: inline-block;
+  background: #c9c2c2;
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  margin-right: 0.25rem;
+  font-style: italic;
 }
 
 .grow img {
-    transition: 1s ease;
-  }
-  
-  .grow img:hover {
-    -webkit-transform: scale(0.95);
-    -ms-transform: scale(0.95);
-    transform: scale(1.05);
-    transition: 1s ease;
-  } 
+  transition: 1s ease;
+}
+
+.grow img:hover {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(1.05);
+  transition: 1s ease;
+}
+
+/* Form css */
+.new-recipe__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.new-recipe__control label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.new-recipe__control input {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 20rem;
+  max-width: 100%;
+}
+
+.new-recipe__actions {
+  text-align: right;
+}
+
+/* New Recipe css */
+.new-expense {
+  background-color: #92d5ee;
+  padding: 1rem;
+  margin: 2rem auto;
+  width: 50rem;
+  max-width: 95%;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+.new-expense button {
+  font: inherit;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 1px solid #063b74;
+  background-color: #065a74;
+  color: white;
+  border-radius: 12px;
+  margin-right: 1rem;
+}
+
+.new-expense button:hover,
+.new-expense button:active {
+  background-color: #063b74;
+  border-color: #065a74;
+}
+
+.new-expense button.alternative {
+  color: #165ea1;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.new-expense button.alternative:hover,
+.new-expense button.alternative:active {
+  background-color: #b3e5f8;
+}

@@ -1,5 +1,6 @@
 const recipeList = [
   {
+    id: "1",
     recipeName: "Strawberry-Rhubarb Ice Pops",
     image:
       "https://www.tasteofhome.com/wp-content/uploads/2018/01/Strawberry-Rhubarb-Ice-Pops_EXPS_SSCBZ18_14629_B08_30_10b-4.jpg?w=1200",
@@ -10,6 +11,7 @@ const recipeList = [
     meal: "dessert",
   },
   {
+    id: "2",
       recipeName: "Slow-Cooker Baked Ziti",
       image: "https://www.tasteofhome.com/wp-content/uploads/2022/05/Slow-Cooker-Baked-Ziti_EXPS_TOHESCODR22_236854_MD_02_09_2b-1.jpg?fit=700,1024",
       ingredients: "1 container (15 ounces) whole-milk ricotta cheese, 1 large egg beaten, 1 teaspoon dried basil, 1/2 teaspoon crushed red pepper flakes (optional), 1 jar (24 ounces) meatless pasta sauce, 2 cups uncooked ziti, 1/4 cup water, 2 cups shredded mozzarella cheese, 1/4 cup minced fresh basil, Grated Parmesan cheese (optional)",
@@ -17,6 +19,7 @@ const recipeList = [
       meal: "dinner"
   },
   {
+    id: "3",
     recipeName: "Cheesy Hash Brown Egg Casserole with Bacon",
     image: "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps8441_THCA2916394B04_02_3b_WEB-1.jpg?w=1200",
     ingredients: "1/2 pound sliced bacon chopped, 1/2 cup chopped onion, 1/2 cup chopped green pepper, 12 large eggs lightly beaten, 1 cup 2% milk, 1 teaspoon salt, 1/2 teaspoon pepper, 1/4 teaspoon dill weed, 1 package (16oz) frozen shredded hash brown potatoes thawed, 1 cup shredded cheddar cheese, minced fresh parsely (optional)",
@@ -24,6 +27,7 @@ const recipeList = [
     meal: "breakfast"
   },
   {
+    id: "4",
     recipeName:"Chicken Alfredo",
     image: "https://www.tasteofhome.com/wp-content/uploads/2021/08/Easy-Chicken-Alfredo_EXPS_FT21_264237_F_0602_1.jpg?fit=700,1024",
     ingredients: "2 boneless skinless chicken breasts, 1/2 teaspoon salt divided, 1/4 teaspoon pepper divided, 2 teaspoons olive oil, 8 ounces uncooked fettuccine, 6 tablespoons cubed butter, 2 cups heavy whipping cream, 3/4 cup grated Parmesan cheese, 1/2 cup grated Romano cheese, 1/8 teaspoon ground nutmeg, 2 large egg yolks lightly beaten, minced fresh parsley (optional)",
@@ -31,6 +35,7 @@ const recipeList = [
     meal: "dinner"
   }, 
   {
+    id: "5",
     recipeName: "Caprese Eggplant Hero",
     image: "https://www.tasteofhome.com/wp-content/uploads/2023/03/Caprese-Eggplant-Hero_EXPS_TOHAS23_268281_P2_MD_03_08_6b.jpg?fit=700,1024",
     ingredients: "1 large eggplant, 1 teaspoon kosher salt divided, 1/4 cup olive oil, divided, 3 tablespoons honey, 1 teaspoon coarsely ground pepper, 1/4 cup balsamic glaze, divided, 1 loaf (1 pound) unsliced Italian bread, 2 large tomatoes, cut into 1/4-inch slices, 1 pound fresh mozzarella cheese, thinly sliced, 2 cups fresh arugula, 1/2 cup fresh basil leaves julienned",
@@ -38,6 +43,7 @@ const recipeList = [
     meal: "lunch"
   },
   {
+    id: "6",
     recipeName: "Peanut Butter Cookies",
     image: "https://www.tasteofhome.com/wp-content/uploads/2022/05/Air-Fryer-Peanut-Butter-Cookies_EXPS267194_5BS29733292B03_15_3bC-10.jpg?fit=700,1024",
     ingredients: "1 large egg, room temperature, beaten, 1 cup sugar, 1 cup creamy peanut butter",
