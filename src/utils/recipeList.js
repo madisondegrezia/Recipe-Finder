@@ -17,6 +17,13 @@ const recipeList = [
       meal: "dinner"
   },
   {
+    recipeName: "Cheesy Hash Brown Egg Casserole with Bacon",
+    image: "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps8441_THCA2916394B04_02_3b_WEB-1.jpg?w=1200",
+    ingredients: "1/2 pound sliced bacon chopped, 1/2 cup chopped onion, 1/2 cup chopped green pepper, 12 large eggs lightly beaten, 1 cup 2% milk, 1 teaspoon salt, 1/2 teaspoon pepper, 1/4 teaspoon dill weed, 1 package (16oz) frozen shredded hash brown potatoes thawed, 1 cup shredded cheddar cheese, minced fresh parsely (optional)",
+    directions: "Preheat oven to 350°. In a large skillet, cook bacon over medium heat until crisp. Remove with a slotted spoon; drain on paper towels. Discard drippings, reserving 2 tablespoons. In the same skillet, saute onion and green pepper in drippings until tender; remove with a slotted spoon. In a large bowl, whisk eggs, milk and seasonings. Stir in hash browns, cheese, onion mixture and bacon. Transfer to a greased 13x9-in. baking dish. Bake, uncovered, until a knife inserted in the center comes out clean, 35-45 minutes. If desired, garnish with parsley.",
+    meal: "breakfast"
+  },
+  {
     recipeName:"Chicken Alfredo",
     image: "https://www.tasteofhome.com/wp-content/uploads/2021/08/Easy-Chicken-Alfredo_EXPS_FT21_264237_F_0602_1.jpg?fit=700,1024",
     ingredients: "2 boneless skinless chicken breasts, 1/2 teaspoon salt divided, 1/4 teaspoon pepper divided, 2 teaspoons olive oil, 8 ounces uncooked fettuccine, 6 tablespoons cubed butter, 2 cups heavy whipping cream, 3/4 cup grated Parmesan cheese, 1/2 cup grated Romano cheese, 1/8 teaspoon ground nutmeg, 2 large egg yolks lightly beaten, minced fresh parsley (optional)",
@@ -29,6 +36,13 @@ const recipeList = [
     ingredients: "1 large eggplant, 1 teaspoon kosher salt divided, 1/4 cup olive oil, divided, 3 tablespoons honey, 1 teaspoon coarsely ground pepper, 1/4 cup balsamic glaze, divided, 1 loaf (1 pound) unsliced Italian bread, 2 large tomatoes, cut into 1/4-inch slices, 1 pound fresh mozzarella cheese, thinly sliced, 2 cups fresh arugula, 1/2 cup fresh basil leaves julienned",
     directions: "Peel and slice eggplant lengthwise into 1/4-in.-thick slices. Place in a colander over a plate; sprinkle with salt and toss. Let stand 30 minutes. Brush eggplant slices with 2 tablespoons oil. Drizzle with honey; sprinkle with 1/2 teaspoon salt and pepper. Grill eggplant, covered, over medium heat until tender, 3-4 minutes per side. Drizzle with 2 tablespoons balsamic glaze. Cut bread in half horizontally. Drizzle cut sides with remaining 2 tablespoons olive oil and 2 tablespoons balsamic glaze. Layer eggplant, tomato and mozzarella slices on bread bottom; top with arugula and basil. Replace top. Cut crosswise into 6 slices.",
     meal: "lunch"
+  },
+  {
+    recipeName: "Peanut Butter Cookies",
+    image: "https://www.tasteofhome.com/wp-content/uploads/2022/05/Air-Fryer-Peanut-Butter-Cookies_EXPS267194_5BS29733292B03_15_3bC-10.jpg?fit=700,1024",
+    ingredients: "1 large egg, room temperature, beaten, 1 cup sugar, 1 cup creamy peanut butter",
+    directions: "In a large bowl, mix all ingredients. Roll level tablespoons of dough into balls. Flatten with a fork. Preheat air fryer to 400°. In batches, place 1 in. apart in greased air fryer. Cook until lightly browned, 3-4 minutes. Allow to cool slightly on the pan and remove to wire racks to cool.",
+    meal: "dessert"
   }
 ];
 
