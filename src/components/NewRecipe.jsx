@@ -1,5 +1,7 @@
 import { useState } from "react";
 import RecipeForm from "./RecipeForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 const NewRecipe = (props) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -25,7 +27,9 @@ const NewRecipe = (props) => {
   return (
     <div className="new-expense">
       {!isEditing && (
-        <button onClick={startEditingHandler}>Add New Recipe</button>
+        <button onClick={startEditingHandler}>
+          Add New Recipe <FontAwesomeIcon icon={faPenToSquare} />
+        </button>
       )}
       {isEditing && (
         <RecipeForm

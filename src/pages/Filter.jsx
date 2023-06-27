@@ -1,5 +1,7 @@
 import recipeList from "../utils/recipeList";
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Filter = () => {
   // List of all recipes satisfing all the filters
@@ -67,7 +69,7 @@ const Filter = () => {
       {/* Search component */}
       <input
         type="text"
-        placeholder="Search by name..."
+        placeholder="Search by name"
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
       />

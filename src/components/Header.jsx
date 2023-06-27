@@ -1,6 +1,7 @@
 import Container from "./Container";
 import { NavLink as RouterLink } from "react-router-dom";
 import logo from '../images/logo.png'
+import logo2 from '../images/logo2.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,7 +16,7 @@ const Header = () => {
     <Container className="bg-cyan-600">
       <nav className="flex gap-10">
       <RouterLink className="logo" to="/">
-          <img src={logo} />
+          <img src={logo2} />
         </RouterLink>
       <RouterLink className="text-2xl title" to="/">
           Taste of Home 

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const RecipeForm = (props) => {
   const [enteredRecipeName, setEnteredRecipeName] = useState("");
   const [enteredImageUrl, setEnteredImageUrl] = useState("");
   const [enteredIngredients, setEnteredIngredients] = useState("");
-  const [enteredDirections, setEnteredDirections] = useState("")
-  const [enteredMeal, setEnteredMeal] = useState("")
+  const [enteredDirections, setEnteredDirections] = useState("");
+  const [enteredMeal, setEnteredMeal] = useState("");
 
   const recipeNameChangeHandler = (event) => {
     setEnteredRecipeName(event.target.value);
@@ -34,7 +36,7 @@ const RecipeForm = (props) => {
       image: enteredImageUrl,
       ingredients: enteredIngredients,
       directions: enteredDirections,
-      meal: enteredMeal
+      meal: enteredMeal,
     };
 
     props.onSaveExpenseData(recipeData);
@@ -42,7 +44,7 @@ const RecipeForm = (props) => {
     setEnteredImageUrl("");
     setEnteredIngredients("");
     setEnteredDirections("");
-    setEnteredMeal("")
+    setEnteredMeal("");
   };
   return (
     <form onSubmit={submitHandler}>
@@ -81,19 +83,14 @@ const RecipeForm = (props) => {
         </div>
         <div className="new-recipe__control">
           <label>Meal Type</label>
-          <input
-            type="text"
-            value={enteredMeal}
-            onChange={mealChangeHandler}
-          />
+          <input type="text" value={enteredMeal} onChange={mealChangeHandler} />
         </div>
-       
       </div>
       <div className="new-recipe__actions">
         <button type="button" onClick={props.onCancel}>
           Cancel
         </button>
-        <button type="submit">Add New Recipe</button>
+        <button type="submit">Add New Recipe <FontAwesomeIcon icon={faPlusCircle} /></button>
       </div>
     </form>
   );
