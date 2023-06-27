@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import Recipe from "./pages/Recipe";
-import Favorites from "./pages/Favorites";
+import Filter from "./pages/Filter";
 import NotFound from "./pages/NotFound";
 import "./index.css";
 import { useState } from "react";
@@ -23,14 +23,13 @@ function App() {
   //   recipeList.push(recipe)
   // };
 
-
   return (
     <>
       <Header />
        <Container>
         <Routes>
           <Route index element={<Home />}></Route>
-          <Route path="/Favorites" element={<Favorites />}></Route>
+          <Route path="/filter" element={<Filter />}></Route>
           <Route path="/recipes/:id" element={<Recipe />}></Route>
           <Route path="/recipes" element={<Recipes />}></Route>
           <Route path="*" element={<NotFound />}></Route>

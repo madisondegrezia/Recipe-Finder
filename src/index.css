@@ -159,3 +159,40 @@ html {
 .new-expense button.alternative:active {
   background-color: #b3e5f8;
 }
+
+/* Search css */
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 22px;
+}
+.search-header {
+  display: flex;
+}
+.search-text {
+  margin-right: 10px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#search-box {
+  height: 25px;
+}
+#search-box[placeholder] {
+  line-height: 25px;
+  font-size: 25px;
+}
+#item-list {
+  min-height: 260px;
+}
+
+#meal-input {
+  width: 90px;
+  margin: 0 10px;
+  height: 30px;
+  border-radius: 5%;
+}

@@ -21,8 +21,8 @@ const Header = () => {
         <RouterLink className={getClassName} to="/">
           Home
         </RouterLink>
-        <RouterLink className={getClassName} to="/Favorites">
-          Favorites
+        <RouterLink className={getClassName} to="/Filter">
+          Filter
         </RouterLink>
       </nav>
     </Container>
