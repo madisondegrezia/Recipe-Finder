@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import RecipeForm from "./RecipeForm";
-import recipeList from "../utils/recipeList";
 
 const NewRecipe = (props) => {
   const [isEditing, setIsEditing] = useState(false);

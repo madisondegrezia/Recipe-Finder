@@ -7,18 +7,8 @@ const Filter = () => {
 
   // Selected Meal type filter
   const [selectedMeal, setSelectedMeal] = useState("");
-
-  const filterByMeal = (filteredData) => {
-    // Avoid filter for empty string
-    if (!selectedMeal) {
-      return filteredData;
-    }
-
-    const filteredMeals = filteredData.filter(
-      (recipe) => recipe.meal.split(" ").indexOf(selectedMeal) !== -1
-    );
-    return filteredMeals;
-  };
+  
+  // filter by meal function moved inside useEffect()
 
   const handleMealChange = (event) => {
     setSelectedMeal(event.target.value);
@@ -47,9 +37,20 @@ const Filter = () => {
   }
 
   useEffect(() => {
+    const filterByMeal = (filteredData) => {
+      // Avoid filter for empty string
+      if (!selectedMeal) {
+        return filteredData;
+      }
+
+      const filteredMeals = filteredData.filter(
+        (recipe) => recipe.meal.split(" ").indexOf(selectedMeal) !== -1
+      );
+      return filteredMeals;
+    };
     var filteredData = filterByMeal(recipeList);
     setFilteredList(filteredData);
-  });
+  }, [selectedMeal]);
 
   return (
     <>

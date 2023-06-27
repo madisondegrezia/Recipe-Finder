@@ -8,9 +8,7 @@ import Recipe from "./pages/Recipe";
 import Filter from "./pages/Filter";
 import NotFound from "./pages/NotFound";
 import "./index.css";
-import { useState } from "react";
-import recipeList from "./utils/recipeList";
-import NewRecipe from "./components/NewRecipe";
+
 
 function App() {
   // const [recipes, setRecipes] = useState(recipeList);
