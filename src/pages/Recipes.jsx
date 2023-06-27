@@ -4,12 +4,22 @@ import ErrorAlert from "../components/ErrorAlert";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import recipeList from "../utils/recipeList";
+import NewRecipe from "../components/NewRecipe";
 import "../index.css";
 
 const Recipes = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [list, setList] = useState(recipeList)
+  
+  const [recipes, setRecipes] = useState(recipeList);
+  console.log(recipes)
+
+  const addRecipeHandler = (recipe) => {
+    setRecipes((prevRecipes) => {
+      return [...prevRecipes, recipe];
+    });
+    recipeList.push(recipe)
+  };
 
   //console.log(list);
 
@@ -57,6 +67,7 @@ const Recipes = () => {
                 recipe;
 
               return (
+                
                 <div key={`${recipeName}${id}`} className="cards--card">
                  <Link id="a" to={`/recipes/${recipe.id}`}>
                   <div className="grow">
@@ -75,6 +86,7 @@ const Recipes = () => {
               );
             })}
           </div>
+          <NewRecipe onAddRecipe={addRecipeHandler}/>
         </>
       )}
     </>

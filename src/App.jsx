@@ -13,15 +13,15 @@ import recipeList from "./utils/recipeList";
 import NewRecipe from "./components/NewRecipe";
 
 function App() {
-  const [recipes, setRecipes] = useState(recipeList);
-  console.log(recipes)
+  // const [recipes, setRecipes] = useState(recipeList);
+  // console.log(recipes)
 
-  const addRecipeHandler = (recipe) => {
-    setRecipes((prevRecipes) => {
-      return [...prevRecipes, recipe];
-    });
-    recipeList.push(recipe)
-  };
+  // const addRecipeHandler = (recipe) => {
+  //   setRecipes((prevRecipes) => {
+  //     return [...prevRecipes, recipe];
+  //   });
+  //   recipeList.push(recipe)
+  // };
 
 
   return (
@@ -36,7 +36,7 @@ function App() {
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </Container> 
-      <NewRecipe onAddRecipe={addRecipeHandler}/>
+      {/* <NewRecipe onAddRecipe={addRecipeHandler}/> */}
       <Footer />
     </>
   );
