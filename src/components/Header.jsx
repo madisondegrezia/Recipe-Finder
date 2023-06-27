@@ -1,6 +1,8 @@
 import Container from "./Container";
 import { NavLink as RouterLink } from "react-router-dom";
 import logo from '../images/logo.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const getClassName = (props) => {
@@ -22,7 +24,7 @@ const Header = () => {
           Home
         </RouterLink>
         <RouterLink className={getClassName} to="/Filter">
-          Filter
+          Filter <FontAwesomeIcon icon={faMagnifyingGlass} />
         </RouterLink>
       </nav>
     </Container>
