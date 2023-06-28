@@ -10,7 +10,8 @@ const Filter = () => {
   // Selected Meal type filter
   const [selectedMeal, setSelectedMeal] = useState("");
   
-  // filter by meal function moved inside useEffect()
+  // filter by meal function moved inside useEffect() to 
+  // prevent infinite re-rendering
 
   const handleMealChange = (event) => {
     setSelectedMeal(event.target.value);
@@ -18,11 +19,9 @@ const Filter = () => {
 
   // search component
   const [searchInput, setSearchInput] = useState("");
+
   //     set search parameters
-  //     we only what to search countries by capital and name
-  //     this list can be longer if you want
-  //     you can search countries even by their population
-  // just add it to this array
+  //     we only what to search recipes by recipe name
   const [searchParam] = useState(["recipeName"]);
 
   function search(items) {
