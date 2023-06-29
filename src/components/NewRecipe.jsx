@@ -32,7 +32,7 @@ const NewRecipe = () => {
   return (
     <div className="new-expense">
       {!isEditing && (
-        <button onClick={startEditingHandler}>
+        <button onClick={startEditingHandler} className='new-expense-btn'>
           Add New Recipe <FontAwesomeIcon icon={faPenToSquare} />
         </button>
       )}

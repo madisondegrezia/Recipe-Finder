@@ -54,6 +54,7 @@ const Filter = () => {
   }
 
   useEffect(() => {
+    getData()
     const filterByMeal = (filteredData) => {
       // Avoid filter for empty string
       if (!selectedMeal) {

@@ -97,7 +97,7 @@ const RecipeForm = ({ onAddRecipe }) => {
             id="meal"
           />
         </div>
-        <button type="submit">
+        <button type="submit" className='new-expense-btn'>
           Add New Recipe <FontAwesomeIcon icon={faPlusCircle} />
         </button>
         {/* <input
