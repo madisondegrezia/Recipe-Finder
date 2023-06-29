@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import RecipeForm from "./RecipeForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
@@ -28,6 +28,19 @@ const NewRecipe = () => {
     });
   };
 
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        stopEditingHandler();
+      }
+    };
+    console.log("adding event listener");
+    window.addEventListener("keydown", handleEscape);
+    return () => {
+      console.log("removing event listener");
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }); 
 
   return (
     <div className="new-expense">

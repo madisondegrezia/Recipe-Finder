@@ -5,6 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 
+
 {
   /* <FontAwesomeIcon icon="fa-regular fa-circle-xmark" style={{color: "#4294b8",}} /> */
 }
@@ -17,13 +18,13 @@ function Modal({ isVisible, hideModal, children }) {
     <div onClick={hideModal}>
       <div onClick={(e) => e.stopPropagation()}>
         <div className="new-recipe__actions">
-          <button type="button" onClick={hideModal}>
+          <button type="button" onClick={hideModal} >
             {/* <FontAwesomeIcon icon={faXmark} /> */}
             <FontAwesomeIcon
               icon={faCircleXmark}
               size="xl"
               style={{ color: "#4294b8" }}
-              className='x-mark'
+            
             />
           </button>
           {/* <button type="submit">
