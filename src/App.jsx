@@ -11,15 +11,6 @@ import "./index.css";
 
 
 function App() {
-  // const [recipes, setRecipes] = useState(recipeList);
-  // console.log(recipes)
-
-  // const addRecipeHandler = (recipe) => {
-  //   setRecipes((prevRecipes) => {
-  //     return [...prevRecipes, recipe];
-  //   });
-  //   recipeList.push(recipe)
-  // };
 
   return (
     <>
@@ -33,7 +24,6 @@ function App() {
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </Container> 
-      {/* <NewRecipe onAddRecipe={addRecipeHandler}/> */}
       <Footer />
     </>
   );

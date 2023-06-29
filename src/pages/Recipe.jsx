@@ -2,8 +2,7 @@ import Container from "../components/Container";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import recipeList from "../utils/recipeList";
-import React from "react";
+
 
 const Recipe = () => {
   const { id } = useParams();
@@ -11,6 +10,26 @@ const Recipe = () => {
   const [recipeInfo, setRecipeInfo] = useState({ id: {} });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  /* Fetching data from server */
+  const getRecipeData = async () => {
+		const url = `http://localhost:3000/recipeList/${id}`;
+		setLoading(true);
+		setError(false);
+		try {
+			const request = await fetch(url);
+			const response = await request.json();
+			setRecipeInfo(response);
+		} catch (e) {
+			setError('Error: ' + e.message);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	useEffect(() => {
+		getRecipeData();
+	}, []);
 
   return (
     <Container className="bg">
@@ -41,34 +60,35 @@ const Recipe = () => {
           <div>Recipe Info</div>
           {/* Trying to get individual info for a recipe */}
           <div className="cards">
-            {recipeList.map((recipe) => {
+            {/* {recipeList.map((recipe) =>)} */}
+            {/* {recipeInfo.map((recipe) => {
               const { recipeName, image, ingredients, directions, meal } =
-                recipe;
+                recipe; */}
 
-              return (
-                <div key={`${recipeName}${meal}`} className="cards--card">
+              {/* return ( */}
+                <div key={`${recipeInfo.recipeName}${recipeInfo.meal}`} className="cards--card">
                   <div className="grow">
                     <img
                       className="cards--image"
-                      src={image}
-                      alt={recipeName}
+                      src={recipeInfo.image}
+                      alt={recipeInfo.recipeName}
                     />
                   </div>
                   <div className="cards--text-content">
-                    <p className="cards--name">{recipeName}</p>
-                    <span className="cards--meal">{meal}</span>
+                    <p className="cards--name">{recipeInfo.recipeName}</p>
+                    <span className="cards--meal">{recipeInfo.meal}</span>
                     <p className="cards--ingredients">
-                      <i>Ingredients: {ingredients}</i>
+                      <i>Ingredients: {recipeInfo.ingredients}</i>
                     </p>
                     <br />
                     <p className="cards--directions">
                       <u>Directions: </u>
-                      {directions}
+                      {recipeInfo.directions}
                     </p>
                   </div>
                 </div>
-              );
-            })}
+              {/* ); */}
+            {/* })} */}
           </div>
         </div>
       )}

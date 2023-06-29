@@ -1,25 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ErrorAlert from "../components/ErrorAlert";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import recipeList from "../utils/recipeList";
 import NewRecipe from "../components/NewRecipe";
 import "../index.css";
 
 const Recipes = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  
-  const [recipes, setRecipes] = useState(recipeList);
+  //const [recipes, setRecipes] = useState(recipeList);
+  const [recipes, setRecipes] = useState([]);
+
   console.log(recipes)
 
-  const addRecipeHandler = (recipe) => {
-    setRecipes((prevRecipes) => {
-      return [...prevRecipes, recipe];
-    });
-    recipeList.push(recipe)
-  };
+  /* Fetching data from server */
+  const getData = async () => {
+		const url = 'http://localhost:3000/recipeList';
+		setLoading(true);
+		setError(false);
+		try {
+			const request = await fetch(url);
+			const response = await request.json();
+			setRecipes(response);
+		} catch (e) {
+			setError('Error: ' + e.message);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	useEffect(() => {
+		getData();
+	}, []);
 
   return (
     <>
@@ -32,7 +45,8 @@ const Recipes = () => {
       {!error && !loading && (
         <>
           <div className="cards">
-            {recipeList.map((recipe) => {
+            {/* recipeList.map((recipe) => )*/}
+            {recipes.map((recipe) => {
               const { id, recipeName, image, meal } =
                 recipe;
 
@@ -56,7 +70,7 @@ const Recipes = () => {
               );
             })}
           </div>
-          <NewRecipe onAddRecipe={addRecipeHandler}/>
+          <NewRecipe />
         </>
       )}
     </>

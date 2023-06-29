@@ -2,95 +2,107 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
-const RecipeForm = (props) => {
-  const [enteredRecipeName, setEnteredRecipeName] = useState("");
-  const [enteredImageUrl, setEnteredImageUrl] = useState("");
-  const [enteredIngredients, setEnteredIngredients] = useState("");
-  const [enteredDirections, setEnteredDirections] = useState("");
-  const [enteredMeal, setEnteredMeal] = useState("");
+const initialRecipeFormState = {
+  recipeName: " ",
+  image: " ",
+  ingredients: " ",
+  directions: " ",
+  meal: " ",
+};
 
-  const recipeNameChangeHandler = (event) => {
-    setEnteredRecipeName(event.target.value);
+const RecipeForm = ({ onAddRecipe }) => {
+  const [recipeFormState, setRecipeFormState] = useState(
+    initialRecipeFormState
+  );
+
+  const handleInputChange = (e) => {
+    setRecipeFormState((recipeFormState) => {
+      return {
+        ...recipeFormState,
+        [e.target.name]: e.target.value,
+      };
+    });
   };
 
-  const imageUrlChangeHandler = (event) => {
-    setEnteredImageUrl(event.target.value);
+  const handleAddRecipeFormSubmit = async (e) => {
+    e.preventDefault();
+    // modal should close
+    // form should clear
+    setRecipeFormState(initialRecipeFormState);
+
+    // send request to save job to db and get response
+    const response = await fetch("http://localhost:3000/recipeList", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(recipeFormState),
+    });
+    console.log("response", response);
+    const savedRecipe = await response.json();
+    console.log("savedRecipe", savedRecipe);
+    onAddRecipe(savedRecipe);
   };
 
-  const ingredientsChangeHandler = (event) => {
-    setEnteredIngredients(event.target.value);
-  };
-
-  const directionsChangeHandler = (event) => {
-    setEnteredDirections(event.target.value);
-  };
-
-  const mealChangeHandler = (event) => {
-    setEnteredMeal(event.target.value);
-  };
-
-  const submitHandler = (event) => {
-    event.preventDefault();
-    const recipeData = {
-      recipeName: enteredRecipeName,
-      image: enteredImageUrl,
-      ingredients: enteredIngredients,
-      directions: enteredDirections,
-      meal: enteredMeal,
-    };
-
-    props.onSaveExpenseData(recipeData);
-    setEnteredRecipeName("");
-    setEnteredImageUrl("");
-    setEnteredIngredients("");
-    setEnteredDirections("");
-    setEnteredMeal("");
-  };
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={handleAddRecipeFormSubmit}>
       <div className="new-recipe__controls">
         <div className="new-recipe__control">
-          <label>Recipe Name</label>
+          <label htmlFor="recipeName">Recipe Name</label>
           <input
+            onChange={handleInputChange}
+            value={recipeFormState.recipeName}
             type="text"
-            value={enteredRecipeName}
-            onChange={recipeNameChangeHandler}
+            name="recipeName"
+            id="recipeName"
           />
         </div>
         <div className="new-recipe__control">
-          <label>Image URL</label>
+          <label htmlFor="image">Image URL</label>
           <input
+            onChange={handleInputChange}
+            value={recipeFormState.image}
             type="text"
-            value={enteredImageUrl}
-            onChange={imageUrlChangeHandler}
+            name="image"
+            id="image"
           />
         </div>
         <div className="new-recipe__control">
-          <label>Ingredients</label>
+          <label htmlFor="ingredients">Ingredients</label>
           <input
+            onChange={handleInputChange}
+            value={recipeFormState.ingredients}
             type="text"
-            value={enteredIngredients}
-            onChange={ingredientsChangeHandler}
+            name="ingredients"
+            id="ingredients"
           />
         </div>
         <div className="new-recipe__control">
-          <label>Directions</label>
+          <label htmlFor="directions">Directions</label>
           <input
+            onChange={handleInputChange}
+            value={recipeFormState.directions}
             type="text"
-            value={enteredDirections}
-            onChange={directionsChangeHandler}
+            name="directions"
+            id="directions"
           />
         </div>
         <div className="new-recipe__control">
-          <label>Meal Type</label>
-          <input type="text" value={enteredMeal} onChange={mealChangeHandler} />
+          <label htmlFor="meal">Meal Type</label>
+          <input
+            onChange={handleInputChange}
+            value={recipeFormState.meal}
+            type="text"
+            name="meal"
+            id="meal"
+          />
         </div>
-      </div>
-      <div className="new-recipe__actions">
-        <button type="button" onClick={props.onCancel}>
-          Cancel
+        <button type="submit">
+          Add New Recipe <FontAwesomeIcon icon={faPlusCircle} />
         </button>
-        <button type="submit">Add New Recipe <FontAwesomeIcon icon={faPlusCircle} /></button>
+        {/* <input
+        type="submit"
+      ></input> */}
       </div>
     </form>
   );

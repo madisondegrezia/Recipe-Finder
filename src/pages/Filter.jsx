@@ -1,16 +1,16 @@
 import recipeList from "../utils/recipeList";
 import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Filter = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   // List of all recipes satisfing all the filters
-  const [filteredList, setFilteredList] = useState(recipeList);
+  const [filteredList, setFilteredList] = useState([]);
 
   // Selected Meal type filter
   const [selectedMeal, setSelectedMeal] = useState("");
-  
-  // filter by meal function moved inside useEffect() to 
+
+  // filter by meal function moved inside useEffect() to
   // prevent infinite re-rendering
 
   const handleMealChange = (event) => {
@@ -23,6 +23,22 @@ const Filter = () => {
   //     set search parameters
   //     we only what to search recipes by recipe name
   const [searchParam] = useState(["recipeName"]);
+
+  /* Fetching data from server */
+  const getData = async () => {
+    const url = "http://localhost:3000/recipeList";
+    setLoading(true);
+    setError(false);
+    try {
+      const request = await fetch(url);
+      const response = await request.json();
+      setFilteredList(response);
+    } catch (e) {
+      setError("Error: " + e.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   function search(items) {
     return items.filter((item) => {

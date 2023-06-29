@@ -2,27 +2,32 @@ import { useState } from "react";
 import RecipeForm from "./RecipeForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import Modal from "../ui/Modal";
 
-const NewRecipe = (props) => {
+const NewRecipe = () => {
   const [isEditing, setIsEditing] = useState(false);
-
-  const saveRecipeDataHandler = (enteredRecipeData) => {
-    const recipeData = {
-      ...enteredRecipeData,
-      id: Math.random().toString(),
-    };
-    props.onAddRecipe(recipeData);
-    console.log(recipeData);
-    setIsEditing(false);
-  };
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [recipes, setRecipes] = useState([])
 
   const startEditingHandler = () => {
     setIsEditing(true);
+    setIsModalVisible(true)
   };
 
   const stopEditingHandler = () => {
     setIsEditing(false);
+    setIsModalVisible(false);
   };
+
+  const onAddRecipe = (newRecipe) => {
+    // modal should close
+    stopEditingHandler()
+    // new job should be added to the DOM
+    setRecipes((recipes) => {
+      return [...recipes, newRecipe];
+    });
+  };
+
 
   return (
     <div className="new-expense">
@@ -32,10 +37,12 @@ const NewRecipe = (props) => {
         </button>
       )}
       {isEditing && (
-        <RecipeForm
-          onSaveExpenseData={saveRecipeDataHandler}
-          onCancel={stopEditingHandler}
-        />
+        <Modal isVisible={isModalVisible} hideModal={stopEditingHandler}>
+          <RecipeForm
+            onAddRecipe={onAddRecipe}
+            onCancel={stopEditingHandler}
+          />
+        </Modal>
       )}
     </div>
   );
