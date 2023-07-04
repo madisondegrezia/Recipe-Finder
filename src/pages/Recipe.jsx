@@ -2,7 +2,7 @@ import Container from "../components/Container";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Recipe = () => {
   const { id } = useParams();
@@ -13,23 +13,23 @@ const Recipe = () => {
 
   /* Fetching data from server */
   const getRecipeData = async () => {
-		const url = `http://localhost:3000/recipeList/${id}`;
-		setLoading(true);
-		setError(false);
-		try {
-			const request = await fetch(url);
-			const response = await request.json();
-			setRecipeInfo(response);
-		} catch (e) {
-			setError('Error: ' + e.message);
-		} finally {
-			setLoading(false);
-		}
-	};
+    const url = `http://localhost:3000/recipeList/${id}`;
+    setLoading(true);
+    setError(false);
+    try {
+      const request = await fetch(url);
+      const response = await request.json();
+      setRecipeInfo(response);
+    } catch (e) {
+      setError("Error: " + e.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-	useEffect(() => {
-		getRecipeData();
-	}, []);
+  useEffect(() => {
+    getRecipeData();
+  }, []);
 
   return (
     <Container className="bg">
@@ -60,35 +60,59 @@ const Recipe = () => {
           <div>Recipe Info</div>
           {/* Trying to get individual info for a recipe */}
           <div className="cards">
-            {/* {recipeList.map((recipe) =>)} */}
-            {/* {recipeInfo.map((recipe) => {
-              const { recipeName, image, ingredients, directions, meal } =
-                recipe; */}
-
-              {/* return ( */}
-                <div key={`${recipeInfo.recipeName}${recipeInfo.meal}`} className="cards--card">
-                  <div className="grow">
-                    <img
-                      className="cards--image"
-                      src={recipeInfo.image}
-                      alt={recipeInfo.recipeName}
-                    />
-                  </div>
-                  <div className="cards--text-content">
-                    <p className="cards--name">{recipeInfo.recipeName}</p>
-                    <span className="cards--meal">{recipeInfo.meal}</span>
-                    <p className="cards--ingredients">
-                      <i>Ingredients: {recipeInfo.ingredients}</i>
-                    </p>
-                    <br />
-                    <p className="cards--directions">
-                      <u>Directions: </u>
-                      {recipeInfo.directions}
-                    </p>
-                  </div>
-                </div>
-              {/* ); */}
-            {/* })} */}
+            <div
+              key={`${recipeInfo.recipeName}${recipeInfo.meal}`}
+              className="cards--card"
+            >
+              <div className="grow">
+                <img
+                  className="cards--image"
+                  src={recipeInfo.image}
+                  alt={recipeInfo.recipeName}
+                />
+              </div>
+              <div className="cards--text-content">
+                <p className="cards--name">{recipeInfo.recipeName}</p>
+                <span className="cards--meal">{recipeInfo.meal}</span>
+                <p className="cards--ingredients">
+                  <i>Ingredients: {recipeInfo.ingredients}</i>
+                </p>
+                <br />
+                <p className="cards--directions">
+                  <u>Directions: </u>
+                  {recipeInfo.directions}
+                </p>
+              </div>
+            </div>
+            <Link to={`/recipes/${recipeInfo.id}/edit`}>
+									<div className="py-5">
+										<a
+											href="#_"
+											className="relative inline-block px-4 py-2 font-medium group"
+										>
+											<span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+											<span className="absolute inset-0 w-full h-full bg-sky-200 border-2 border-black group-hover:bg-black"></span>
+											<span className="relative text-black group-hover:text-white">
+                      <FaEdit className='text-2xl' />
+											</span>
+										</a>
+									</div>
+            
+								</Link>
+            <Link to={`/recipes/${recipeInfo.id}/delete`}>
+              <div className="py-5">
+                <a
+                  href="#_"
+                  className="relative inline-block px-4 py-2 font-medium group"
+                >
+                  <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                  <span className="absolute inset-0 w-full h-full bg-sky-200 border-2 border-black group-hover:bg-black"></span>
+                  <span className="relative text-black group-hover:text-white">
+                    <FaTrash className='text-2xl' />
+                  </span>
+                </a>
+              </div>
+            </Link>
           </div>
         </div>
       )}
