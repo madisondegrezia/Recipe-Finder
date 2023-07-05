@@ -22,7 +22,7 @@ const NewRecipe = () => {
   const onAddRecipe = (newRecipe) => {
     // modal should close
     stopEditingHandler()
-    // new job should be added to the DOM
+    // new recipe should be added to the DOM
     setRecipes((recipes) => {
       return [...recipes, newRecipe];
     });
@@ -34,10 +34,8 @@ const NewRecipe = () => {
         stopEditingHandler();
       }
     };
-    console.log("adding event listener");
     window.addEventListener("keydown", handleEscape);
     return () => {
-      console.log("removing event listener");
       window.removeEventListener("keydown", handleEscape);
     };
   }); 

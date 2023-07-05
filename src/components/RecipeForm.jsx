@@ -30,7 +30,7 @@ const RecipeForm = ({ onAddRecipe }) => {
     // form should clear
     setRecipeFormState(initialRecipeFormState);
 
-    // send request to save job to db and get response
+    // send request to save recipe to db and get response
     const response = await fetch("http://localhost:3000/recipeList", {
       method: "POST",
       headers: {

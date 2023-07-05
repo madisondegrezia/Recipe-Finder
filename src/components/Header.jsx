@@ -20,7 +20,7 @@ const Header = () => {
           <img src={logo2} />
         </RouterLink>
         <RouterLink className="text-2xl title" to="/">
-          Taste of Home
+          Recipe Finder
         </RouterLink>
         <RouterLink className={getClassName} to="/">
           <FaHome className='text-2xl' />

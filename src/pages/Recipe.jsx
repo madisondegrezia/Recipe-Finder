@@ -57,61 +57,54 @@ const Recipe = () => {
               <span className="sr-only">Icon description</span>
             </button>
           </Link>
-          {/* Trying to get individual info for a recipe */}
-          <div className="cards">
-            <div
-              key={`${recipeInfo.recipeName}${recipeInfo.meal}`}
-              className="cards--card"
-            >
-              <div className="grow">
-                <img
-                  className="cards--image"
-                  src={recipeInfo.image}
-                  alt={recipeInfo.recipeName}
-                />
-              </div>
-              <div className="cards--text-content">
+          <div
+            className="card m-3 max-w-5xl mx-auto"
+            key={`${recipeInfo.recipeName}${recipeInfo.meal}`}
+          >
+            <img src={recipeInfo.image} alt={recipeInfo.recipeName} />
+            <div className="container">
+              <div className="flex flex-row pt-3 cont">
                 <p className="cards--name">{recipeInfo.recipeName}</p>
                 <span className="cards--meal">{recipeInfo.meal}</span>
-                <p className="cards--ingredients">
-                  <i>Ingredients: {recipeInfo.ingredients}</i>
-                </p>
-                <br />
-                <p className="cards--directions">
-                  <u>Directions: </u>
-                  {recipeInfo.directions}
-                </p>
               </div>
+              <p className="m-4">
+                <i>Ingredients: {recipeInfo.ingredients}</i>
+              </p>
+              <p className="mb-4">
+                <u>Directions: </u>
+                {recipeInfo.directions}
+              </p>
             </div>
-            <Link to={`/recipes/${recipeInfo.id}/edit`}>
-									<div className="py-5">
-										<a
-											href="#_"
-											className="relative inline-block px-4 py-2 font-medium group"
-										>
-											<span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-											<span className="absolute inset-0 w-full h-full bg-sky-200 border-2 border-black group-hover:bg-black"></span>
-											<span className="relative text-black group-hover:text-white">
-                      <FaEdit className='text-2xl' />
-											</span>
-										</a>
-									</div>
-            
-								</Link>
-            <Link to={`/recipes/${recipeInfo.id}/delete`}>
-              <div className="py-5">
-                <a
-                  href="#_"
-                  className="relative inline-block px-4 py-2 font-medium group"
-                >
-                  <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-                  <span className="absolute inset-0 w-full h-full bg-sky-200 border-2 border-black group-hover:bg-black"></span>
-                  <span className="relative text-black group-hover:text-white">
-                    <FaTrash className='text-2xl' />
-                  </span>
-                </a>
-              </div>
-            </Link>
+            <div className="flex flex-row-reverse p-2 gap-3">
+              <Link to={`/recipes/${recipeInfo.id}/delete`}>
+                <div>
+                  <a
+                    href="#_"
+                    className="relative inline-block px-4 py-2 font-medium group"
+                  >
+                    <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                    <span className="absolute inset-0 w-full h-full bg-sky-200 border-2 border-black group-hover:bg-black"></span>
+                    <span className="relative text-black group-hover:text-white">
+                      <FaTrash className="text-2xl" />
+                    </span>
+                  </a>
+                </div>
+              </Link>
+              <Link to={`/recipes/${recipeInfo.id}/edit`}>
+                <div>
+                  <a
+                    href="#_"
+                    className="relative inline-block px-4 py-2 font-medium group"
+                  >
+                    <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                    <span className="absolute inset-0 w-full h-full bg-sky-200 border-2 border-black group-hover:bg-black"></span>
+                    <span className="relative text-black group-hover:text-white">
+                      <FaEdit className="text-2xl" />
+                    </span>
+                  </a>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       )}
