@@ -41,12 +41,12 @@ const Edit = () => {
   const updateRecipe = async () => {
     const url = `http://localhost:3000/recipeList/${params["id"]}`;
     const preparedRecipe = {
-        recipeName: recipeName,
-        image: image,
-        ingredients: ingredients,
-        directions: directions,
-        meal: meal,
-    }
+      recipeName: recipeName,
+      image: image,
+      ingredients: ingredients,
+      directions: directions,
+      meal: meal,
+    };
     const response = await fetch(url, {
       method: "PATCH",
       headers: {
@@ -105,6 +105,7 @@ const Edit = () => {
     <>
       <h1 className="font-bold text-2xl">Edit Recipe</h1>
       <form className="py-2">
+      <div className="new-recipe__control">
         <label>
           <h2>Recipe Name</h2>
         </label>
@@ -115,6 +116,8 @@ const Edit = () => {
           value={recipeName}
           onChange={(e) => setRecipeName(e.target.value)}
         />
+        </div>
+        <div className="new-recipe__control">
         <label>
           <h2>Image</h2>
         </label>
@@ -125,6 +128,7 @@ const Edit = () => {
           value={image}
           onChange={(e) => setImage(e.target.value)}
         />
+        </div>
         <label>
           <h2>Ingredients</h2>
         </label>
@@ -143,15 +147,17 @@ const Edit = () => {
           className="input"
           onChange={(e) => setDirections(e.target.value)}
         />
+        <div className="new-recipe__control">
         <label>
           <h2>Meal</h2>
         </label>
-        <textarea
+        <input
           type="text"
           value={meal}
           className="input"
           onChange={(e) => setMeal(e.target.value)}
         />
+        </div>
       </form>
 
       <div>

@@ -17,13 +17,6 @@ const Filter = () => {
     setSelectedMeal(event.target.value);
   };
 
-  // search component
-  const [searchInput, setSearchInput] = useState("");
-
-  //     set search parameters
-  //     we only what to search recipes by recipe name
-  const [searchParam] = useState(["recipeName"]);
-
   /* Fetching data from server */
   const getData = async () => {
     const url = "http://localhost:3000/recipeList";
@@ -40,18 +33,6 @@ const Filter = () => {
     }
   };
 
-  function search(items) {
-    return items.filter((item) => {
-      return searchParam.some((newItem) => {
-        return (
-          item[newItem]
-            .toString()
-            .toLowerCase()
-            .indexOf(searchInput.toLowerCase()) > -1
-        );
-      });
-    });
-  }
 
   useEffect(() => {
     //getData()
@@ -82,18 +63,8 @@ const Filter = () => {
       </select>
       <br />
       <br />
-      {/* Search component */}
-      <input
-        type="text"
-        placeholder="Search by name"
-        value={searchInput}
-        onChange={(e) => setSearchInput(e.target.value)}
-      />
-
-      <br />
-      <br />
       <div className="cards">
-        {search(filteredList).map((item, index) => {
+        {filteredList.map((item, index) => {
           return (
             <div key={index} className="cards--card">
               <div className="grow">

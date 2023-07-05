@@ -57,7 +57,6 @@ const Recipe = () => {
               <span className="sr-only">Icon description</span>
             </button>
           </Link>
-          <div>Recipe Info</div>
           {/* Trying to get individual info for a recipe */}
           <div className="cards">
             <div

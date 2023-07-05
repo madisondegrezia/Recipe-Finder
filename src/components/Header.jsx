@@ -4,6 +4,7 @@ import logo from "../images/logo.png";
 import logo2 from "../images/logo2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {FaHome} from "react-icons/fa";
 
 const Header = () => {
   const getClassName = (props) => {
@@ -22,10 +23,10 @@ const Header = () => {
           Taste of Home
         </RouterLink>
         <RouterLink className={getClassName} to="/">
-          Home
+          <FaHome className='text-2xl' />
         </RouterLink>
         <RouterLink className={getClassName} to="/Filter">
-          Filter <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
         </RouterLink>
       </nav>
     </Container>
