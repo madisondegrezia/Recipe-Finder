@@ -68,7 +68,7 @@ const Edit = () => {
         {!error && !loading && (
           <div>
             <h1 className="text-xl mb-3">Recipe was updated successfully!</h1>
-            <Link to={"/recipes"}>
+            <Link to={`/recipes/${recipeInfo.id}`}>
               <div>
                 <a
                   href="#_"

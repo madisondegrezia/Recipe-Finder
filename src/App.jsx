@@ -18,7 +18,7 @@ function App() {
       <Container>
         <Routes>
           <Route index element={<Home />}></Route>
-          <Route path="/filter" element={<Filter />}></Route>
+          {/* <Route path="/filter" element={<Filter />}></Route> */}
           <Route path="/recipes/:id" element={<Recipe />}></Route>
           <Route path="/recipes/:id/edit" element={<Edit />}></Route>
 					<Route path="/recipes/:id/delete" element={<Delete />}></Route>

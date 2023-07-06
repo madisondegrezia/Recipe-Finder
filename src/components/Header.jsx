@@ -25,9 +25,9 @@ const Header = () => {
         <RouterLink className={getClassName} to="/">
           <FaHome className='text-2xl' />
         </RouterLink>
-        <RouterLink className={getClassName} to="/Filter">
+        {/* <RouterLink className={getClassName} to="/Filter">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </RouterLink>
+        </RouterLink> */}
       </nav>
     </Container>
   );
